@@ -7,6 +7,7 @@ from langchain.callbacks import StreamlitCallbackHandler
 import os
 from dotenv import load_dotenv
 
+
 ###### Arxiv and Wikipedia tools###########
 # Inbuilt tool of arxiv
 api_wrapper_arxiv = ArxivAPIWrapper(top_k_results=1, doc_content_chars_max=400)
@@ -55,4 +56,5 @@ if prompt and api_key:
         # pass the user prompt (string) to the agent
         response = search_agent.run(prompt, callbacks=[st_cb])
         st.session_state.messages.append({"role": "assistant", "content": response})
+
         st.write(response)
